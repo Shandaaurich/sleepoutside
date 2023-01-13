@@ -4,11 +4,12 @@ import ProductData from "./ProductData.mjs";
 const dataSource = new ProductData("tents");
 
 function addProductToCart(product) {
-  let products = [] // init cart array
-  if (localStorage.getItem("so-cart")) { //if contents in previous array
-    products = getLocalStorage("so-cart") //add old contents to array
+  let products = []; // init cart array
+  if (localStorage.getItem("so-cart")) {
+    //if contents in previous array
+    products = getLocalStorage("so-cart"); //add old contents to array
   }
-  products.push(product) // add new content to array
+  products.push(product); // add new content to array
   setLocalStorage("so-cart", products); //push to storage
 }
 
