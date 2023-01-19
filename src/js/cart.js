@@ -1,11 +1,17 @@
 import { getLocalStorage } from "./utils.mjs";
 
+let cartTotal = 0;
+
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   if (cartItems != null) {
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
+    document.querySelector(
+      ".cart-total"
+    ).innerHTML = `Cart Total: $<strong>${cartTotal}</strong>`;
   }
+
   // if cart empty display emptyness
 }
 
@@ -24,7 +30,7 @@ function cartItemTemplate(item) {
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
-
+  cartTotal += item.FinalPrice;
   return newItem;
 }
 
