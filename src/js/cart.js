@@ -4,7 +4,7 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   if (cartItems == null || cartItems == []) {
     // if cart empty display emptyness
-    const htmlItems = cartEmptyTemplate()
+    const htmlItems = cartEmptyTemplate();
     document.querySelector(".product-list").innerHTML = htmlItems;
   } else if (cartItems != null) {
     // else if not empty display cart contents
@@ -13,7 +13,7 @@ function renderCartContents() {
   }
 }
 
-function cartEmptyTemplate(){
+function cartEmptyTemplate() {
   // TODO: make this look better
   const noItems = `<li class="cart-card divider">
   <img 
@@ -25,7 +25,7 @@ function cartEmptyTemplate(){
   <p class="cart-card__price">$---.--</p>
 </li>`;
 
-  return noItems
+  return noItems;
 }
 
 function cartItemTemplate(item) {
