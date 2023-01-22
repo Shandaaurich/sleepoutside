@@ -2,11 +2,30 @@ import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  if (cartItems != null) {
+  if (cartItems == null || cartItems == []) {
+    // if cart empty display emptyness
+    const htmlItems = cartEmptyTemplate()
+    document.querySelector(".product-list").innerHTML = htmlItems;
+  } else if (cartItems != null) {
+    // else if not empty display cart contents
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
   }
-  // if cart empty display emptyness
+}
+
+function cartEmptyTemplate(){
+  // TODO: make this look better
+  const noItems = `<li class="cart-card divider">
+  <img 
+    alt="Your cart is empty!"
+  />
+  <h2 class="card__name">There's nothing here...</h2>
+  <p class="cart-card__color">Shop today's deals now!</p>
+  <p class="cart-card__quantity">qty: :-)</p>
+  <p class="cart-card__price">$---.--</p>
+</li>`;
+
+  return noItems
 }
 
 function cartItemTemplate(item) {
