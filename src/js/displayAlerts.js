@@ -1,4 +1,4 @@
-import Alert from "../js/Alert";
+import Alert from "./Alert.mjs";
 
 const alert = new Alert();
 alert.renderAlertDetails();
