@@ -35,6 +35,7 @@ export default class ProductDetails {
 }
 
 function productTemplate(item) {
+    const discount__percent = (((item.SuggestedRetailPrice - item.FinalPrice) / item.SuggestedRetailPrice) * 100)
     return `<section class="product-detail">
     <h3>${item.Brand.Name}</h3>
 
@@ -46,7 +47,8 @@ function productTemplate(item) {
       alt="${item.Name}"
     />
 
-    <p class="product-card__price">${item.FinalPrice}</p>
+    <span class="product-card__price">$${item.FinalPrice}</span>
+    <span class="product-full__price">  $${item.SuggestedRetailPrice}</span>  <p class="product-card__discount%"> You save ${discount__percent.toFixed(0)}%</p>
 
     <p class="product__color">${item.Colors[0].ColorName}</p>
 
