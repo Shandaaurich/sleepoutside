@@ -5,6 +5,6 @@ var products = new ProductData("tents");
 
 var listElement = document.querySelector(".product-list");
 
-var list = new ProductListing("tents", products, listElement) ;
+var list = new ProductListing("tents", products, listElement);
 
 list.init();
