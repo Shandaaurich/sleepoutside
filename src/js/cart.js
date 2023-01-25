@@ -16,7 +16,6 @@ function renderCartContents() {
       ".cart-total"
     ).innerHTML = `Cart Total: $<strong>${cartTotal}</strong>`;
   }
-
 }
 
 function cartEmptyTemplate() {
