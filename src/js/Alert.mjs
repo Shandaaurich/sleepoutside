@@ -1,4 +1,4 @@
-import alertData from "../json/alerts.json";
+import alertData from "../public/json/alerts.json";
 
 export default class Alert {
   constructor() {
