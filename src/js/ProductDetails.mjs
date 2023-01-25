@@ -35,20 +35,22 @@ export default class ProductDetails {
 }
 
 function productTemplate(item) {
-    const discount__percent = (((item.SuggestedRetailPrice - item.FinalPrice) / item.SuggestedRetailPrice) * 100)
-    return `<section class="product-detail">
+    let discount__percent = (((item.SuggestedRetailPrice - item.FinalPrice) / item.SuggestedRetailPrice) * 100);
+    let discountMessage = `You save ${discount__percent.toFixed(0)}%`;
+    let priceClass = "product-card__priceDiscount";
+    let productHTML = `<section class="product-detail">
     <h3>${item.Brand.Name}</h3>
 
     <h2 class="divider">${item.Name}</h2>
 
     <img
-      class="divider"
-      src="${item.Image}"
-      alt="${item.Name}"
+    class="divider"
+    src="${item.Image}"
+    alt="${item.Name}"
     />
 
-    <span class="product-card__price">$${item.FinalPrice}</span>
-    <span class="product-full__price">  $${item.SuggestedRetailPrice}</span>  <p class="product-card__discount%"> You save ${discount__percent.toFixed(0)}%</p>
+    <span class="${priceClass}">$${item.FinalPrice}</span>
+    <span class="product-full__price">  $${item.SuggestedRetailPrice}</span>  <p class="product-card__discount%"> ${discountMessage}</p>
 
     <p class="product__color">${item.Colors[0].ColorName}</p>
 
@@ -57,7 +59,18 @@ function productTemplate(item) {
     </p>
 
     <div class="product-detail__add">
-      <button id="addToCart" data-id="${item.Id}">Add to Cart</button>
+    <button id="addToCart" data-id="${item.Id}">Add to Cart</button>
     </div>
     </section>`
+    console.log(discount__percent, discountMessage, priceClass)
+
+    if (discount__percent <= 0){
+        discount__percent = 0
+        discountMessage = ""
+        priceClass = "product-card__price"
+        return productHTML
+    } else {
+        
+    return productHTML
+    }
 }

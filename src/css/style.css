@@ -148,6 +148,10 @@ button {
 }
 
 .product-card__price {
+  color: var(--dark-grey);
+}
+
+.product-card__priceDiscount{
   color: red;
 }
 
