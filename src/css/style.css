@@ -105,6 +105,7 @@ button {
 
 /* total items in cart superscript */
 .cart a:before {
+  display: block;
   content: attr(data-totalitems);
   font-size: 16px;
   font-weight: 600;
