@@ -4,7 +4,7 @@ import { initCartIcon } from "./Cart.mjs";
 import { qs } from "./utils.mjs";
 
 // show number of items in cart on the cart icon in header
-initCartIcon()
+initCartIcon();
 
 // show the list of products
 var products = new ProductData("tents");

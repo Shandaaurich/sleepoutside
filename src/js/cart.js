@@ -2,7 +2,7 @@ import { getLocalStorage, renderListWithTemplate, qs } from "./utils.mjs";
 import { initCartIcon } from "./Cart.mjs";
 
 // show number of items in cart on the cart icon in header
-initCartIcon()
+initCartIcon();
 
 let cartTotal = 0;
 
@@ -16,8 +16,6 @@ function renderCartContents() {
     // else if not empty display cart contents
     renderListWithTemplate(cartItemTemplate, qs(".product-list"), cartItems);
     // display total
-    // for each item in cartItems, add its FinalPrice to the next item's FinalPrice, and return the total
-    //let cartTotal = cartItems.reduce((total, item) => item.FinalPrice, 0);
     qs(".cart-total").innerHTML = `Cart Total: $<strong>${cartTotal}</strong>`;
   }
 }

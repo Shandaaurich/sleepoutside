@@ -4,7 +4,7 @@ import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
 // show number of items in cart on the cart icon in header
-initCartIcon()
+initCartIcon();
 
 const dataSource = new ProductData("tents");
 const productID = getParams("product");
