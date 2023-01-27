@@ -35,7 +35,9 @@ function cartEmptyTemplate() {
 }
 
 function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
+  const newItem = `
+  <li class="cart-card divider">
+  
   <a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -47,8 +49,12 @@ function cartItemTemplate(item) {
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
+  <a href="#">
+    <span class="cart-card__delete" data-id="${item.Id}">remove</span>
+  </a>
+  
   <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
+  </li>`;
   cartTotal += item.FinalPrice;
   return newItem;
 }
