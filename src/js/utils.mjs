@@ -1,3 +1,6 @@
+//import { response } from "express";
+import { initCartIcon } from "./Cart.mjs";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -37,4 +40,28 @@ export function renderListWithTemplate(template, parentElement, list, position =
     parentElement.innerHTML = "";
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
+}
+
+// render a template
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML("afterbegin", template);
+  if(callback) {
+      callback(data);
+  }
+}
+
+async function loadTemplate(path){
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
+
+export async function loadHeaderFooter(headerData, headerCallback) {
+  const headerTemplate = await loadTemplate("/partials/header.html");
+  const headerExport = document.querySelector("#main-header");
+  const footerTemplate = await loadTemplate("/partials/footer.html");
+  const footerExport = document.querySelector("#main-footer");
+
+  renderWithTemplate(headerTemplate, headerExport, headerData, headerCallback);
+  renderWithTemplate(footerTemplate, footerExport);
 }
