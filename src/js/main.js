@@ -1,7 +1,10 @@
 import ProductData from "./ProductData.mjs";
 import ProductListing from "./ProductList.mjs";
 import { initCartIcon } from "./Cart.mjs";
-import { qs } from "./utils.mjs";
+import { loadHeaderFooter, qs } from "./utils.mjs";
+
+//call header and footer from the template
+loadHeaderFooter();
 
 // show number of items in cart on the cart icon in header
 initCartIcon();
