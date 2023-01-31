@@ -17,6 +17,6 @@ export function initCartIcon() {
 }
 
 export function updateCartIcon(totalAmount) {
-    qs(".cart a").dataset.totalItems = totalAmount;
+    qs(".cart a").dataset.totalitems = totalAmount;
     qs(".cart").classList.add("bubble");
 }
