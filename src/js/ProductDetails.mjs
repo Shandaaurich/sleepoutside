@@ -40,6 +40,16 @@ export default class ProductDetails {
 }
 
 function productTemplate(item) {
+    var discount = Math.round(item.SuggestedRetailPrice - item.FinalPrice);
+    if (discount != 0) {
+        var discountHTML = 
+        `
+        <p class="product-card__suggestedPrice">Suggested Retail Price - $${item.SuggestedRetailPrice}</p>
+        <p class="product-card__discount" style="background-color:coral;">Discount - $${discount}</p>
+        `
+    } else {
+        discountHTML = "";
+    }
     return `<section class="product-detail">
     <h3>${item.Brand.Name}</h3>
     <h2 class="divider">${item.Name}</h2>
@@ -48,7 +58,9 @@ function productTemplate(item) {
       src="${item.Image}"
       alt="${item.Name}"
     />
-    <p class="product-card__price">${item.FinalPrice}</p>
+    
+    ${discountHTML}
+    <p class="product-card__ourPrice">Our Price - $${item.FinalPrice}</p>
     <p class="product__color">${item.Colors[0].ColorName}</p>
     <p class="product__description">
         ${item.DescriptionHtmlSimple}
