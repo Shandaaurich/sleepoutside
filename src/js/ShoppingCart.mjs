@@ -10,7 +10,7 @@ let cartTotal = 0;
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  if (cartItems == null || cartItems == []) {
+  if (cartItems == null || cartItems <= 0) {
     // if cart empty display emptyness
     const htmlItems = cartEmptyTemplate();
     qs(".product-list").innerHTML = htmlItems;
@@ -18,12 +18,12 @@ function renderCartContents() {
     // else if not empty display cart contents
     renderListWithTemplate(cartItemTemplate, qs(".product-list"), cartItems);
       
+    //remove items from cart on click
+    removeItems();
     // display total
     qs(".cart-total").innerHTML = `Cart Total: $<strong>${cartTotal.toFixed(2)}</strong>`;
   }
 
-  //remove items from cart on click
-  removeItems();
 }
 
 function cartEmptyTemplate() {
@@ -89,6 +89,7 @@ function removeItems() {
       let newCart = getLocalStorage("so-cart");
       //re-render the cart list
       renderListWithTemplate(cartItemTemplate, qs(".product-list"), newCart);
+      
     });
     
   };
