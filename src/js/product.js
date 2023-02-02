@@ -8,4 +8,4 @@ const productID = getParams("product");
 const product = new ProductDetails(dataSource, productID);
 product.init();
 
-loadHeaderFooter(null, initCartIcon)
+loadHeaderFooter(null, initCartIcon);
