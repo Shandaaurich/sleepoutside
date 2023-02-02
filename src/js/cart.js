@@ -1,6 +1,6 @@
 import {
-  getLocalStorage,
-  renderListWithTemplate,
+  // getLocalStorage,
+  // renderListWithTemplate,
   qs,
   loadHeaderFooter,
 } from "./utils.mjs";
