@@ -56,9 +56,9 @@ function cartItemTemplate(item) {
     <a href="./index.html">
     <span class="cart-card__delete" data-id="${item.Id}">remove</span>
     </a>
-    <p class="cart-card__price">$${item.FinalPrice}</p>
+    <p class="cart-card__price">$${item.FinalPrice * item.quantity}</p>
   </li>`;
-  cartTotal += item.FinalPrice;
+  cartTotal += item.FinalPrice * item.quantity;
   return newItem;
 }
 
