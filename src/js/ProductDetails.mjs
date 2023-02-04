@@ -40,6 +40,7 @@ export default class ProductDetails {
 }
 
 function productTemplate(item) {
+    item.quantity = 1;
     var discount = Math.round(item.SuggestedRetailPrice - item.FinalPrice);
     if (discount != 0) {
         var discountHTML = 
@@ -65,6 +66,7 @@ function productTemplate(item) {
     <p class="product__description">
         ${item.DescriptionHtmlSimple}
     </p>
+    <p hidden>${item.quantity}</p>
     <div class="product-detail__add">
       <button id="addToCart" data-id="${item.Id}">Add to Cart</button>
     </div>
