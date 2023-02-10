@@ -55,7 +55,7 @@ function productTemplate(item) {
     <h2 class="divider">${item.Name}</h2>
     <img
       class="divider"
-      src="${item.Image}"
+      src="${item.Images.PrimaryLarge}"
       alt="${item.Name}"
     />
     
