@@ -53,11 +53,17 @@ function productTemplate(item) {
     return `<section class="product-detail">
     <h3>${item.Brand.Name}</h3>
     <h2 class="divider">${item.Name}</h2>
-    <img
-      class="divider"
-      src="${item.Images.PrimaryLarge}"
-      alt="${item.Name}"
-    />
+    <picture>
+        <source media="(min-width: 1200px)" srcset="${item.Images.PrimaryExtraLarge}">
+        <source media="(min-width: 600px)" srcset="${item.Images.PrimaryLarge}">
+        <source media="(min-width: 200px)" srcset="${item.Images.PrimaryMedium}">
+        <img
+        class="divider"
+        src="${item.Images.PrimaryLarge}"
+        alt="${item.Name}"
+        />
+      </picture>
+
     
     ${discountHTML}
     <p class="product-card__ourPrice">Our Price - $${item.FinalPrice}</p>
