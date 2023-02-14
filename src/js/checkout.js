@@ -6,16 +6,16 @@ import ExternalServices from "./ExternalServices.mjs";
 //call header and footer from the template
 loadHeaderFooter(null, initCartIcon);
 
-const key = 'so-cart';
+const key = "so-cart";
 
 const dataSource = new ExternalServices();
-const checkout = new CheckoutProcess(key, qs('html'))
+const checkout = new CheckoutProcess(key, qs("html"));
 
 checkout.init();
 checkout.calculateOrderSummary();
 
-qs('#submitCheckout').addEventListener("click", (e) => {
-    e.preventDefault();
+qs("#submitCheckout").addEventListener("click", (e) => {
+  e.preventDefault();
 
-    checkout.checkout();
-})
+  checkout.checkout();
+});
