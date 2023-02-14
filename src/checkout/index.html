@@ -5,18 +5,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Checkout</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/main.js" type="module"></script>
   </head>
 
   <body>
-    <header class="divider" id="header-main"></header>
+    <header class="divider" id="main-header"></header>
 
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+      <section class="form">
+        <form id="" class="" onsubmit="">
+          <fieldset name="userData">
+            <legend>Shipping Infomation</legend>
+            <label for="fname">First Name</label>
+            <input type="text" name="fname" required />
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" required />
+            <label for="street">Street</label>
+            <input type="text" name="street" />
+            <label for="city">City</label>
+            <input type="text" name="city" />
+            <label for="state">State</label>
+            <input type="text" name="state" />
+            <label for="zip">Postal Code</label>
+            <input type="number" name="zip" />
+          </fieldset>
+          <fieldset name="paymentData">
+            <legend>Billing Infomation</legend>
+            <label for="cardNumber">Credit Card Number</label>
+            <input type="number" name="cardNumber" />
+            <label for="expiration">Expiration Date</label>
+            <input type="text" name="expiration" />
+            <label for="code">Security Code</label>
+            <input type="number" name="code" />
+          </fieldset>
+          <fieldset>
+            <legend>Order Summary</legend>
+            <p>
+              Item Subtotal(<span id="itemsTotal"></span>):
+              <span id="orderSubtotal"></span>
+            </p>
+            <p>Shipping: <span id="shippingTotal"></span></p>
+            <p>Tax: <span id="taxTotal"></span></p>
+            <p>
+              <strong>Order Total: <span id="totalTotal"></span></strong>
+            </p>
+          </fieldset>
+        </form>
+      </section>
     </main>
 
-    <footer id="footer-main"></footer>
+    <footer id="main-footer"></footer>
   </body>
 </html>
