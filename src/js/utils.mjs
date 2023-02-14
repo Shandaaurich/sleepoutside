@@ -1,5 +1,7 @@
 //import { response } from "express";
-import { initCartIcon } from "./Cart.mjs";
+import {
+  initCartIcon
+} from "./Cart.mjs";
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -45,12 +47,12 @@ export function renderListWithTemplate(template, parentElement, list, position =
 // render a template
 export function renderWithTemplate(template, parentElement, data, callback) {
   parentElement.insertAdjacentHTML("afterbegin", template);
-  if(callback) {
-      callback(data);
+  if (callback) {
+    callback(data);
   }
 }
 
-async function loadTemplate(path){
+async function loadTemplate(path) {
   const res = await fetch(path);
   const template = await res.text();
   return template;
