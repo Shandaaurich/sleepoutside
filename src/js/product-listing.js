@@ -1,11 +1,11 @@
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductListing from "./ProductList.mjs";
 import { qs, getParams } from "./utils.mjs";
 
 const category = getParams("category");
 
 // show the list of products
-var products = new ProductData();
+var products = new ExternalServices();
 var listElement = qs(".product-list");
 var titleElement = qs(".title");
 var title = category.toString();
