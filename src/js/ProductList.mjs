@@ -5,7 +5,7 @@ function productCardTemplate(product) {
     if (discount != 0) {
         var discountHTML = 
         `
-        <p class="product-card__discount" style="background-color:coral; text-align:center;">Discounted!</p>
+        <p class="product-card__discount" style="background-color:coral; text-align:center;">Discounted - $${discount} off!</p>
         `
     } else {
         discountHTML = "";
