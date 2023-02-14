@@ -1,5 +1,5 @@
 import { getParams, loadHeaderFooter } from "./utils.mjs";
-import ExternalServices from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 import { initCartIcon } from "./Cart.mjs";
 

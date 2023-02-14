@@ -1,10 +1,5 @@
-import {
-  getLocalStorage,
-  qs
-} from "./utils.mjs";
-import {
-  renderListWithTemplate,
-} from "./utils.mjs";
+import { getLocalStorage, qs } from "./utils.mjs";
+import { renderListWithTemplate } from "./utils.mjs";
 
 let cartTotal = 0;
 
@@ -20,10 +15,10 @@ function renderCartContents() {
       
     //remove items from cart on click
     removeItems();
+
     // display total
     qs(".cart-total").innerHTML = `Cart Total: $<strong>${cartTotal.toFixed(2)}</strong>`;
   }
-
 }
 
 function cartEmptyTemplate() {
@@ -44,7 +39,7 @@ function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
     <a href="#" class="cart-card__image">
       <img
-        src="${item.Image}"
+        src="${item.Images.PrimaryMedium}"
         alt="${item.Name}"
       />
     </a>

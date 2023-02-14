@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Checkout</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/main.js" type="module"></script>
+    <script src="../js/checkout.js" type="module"></script>
   </head>
 
   <body>
@@ -16,8 +16,8 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
-      <section class="form">
-        <form id="" class="" onsubmit="">
+      <section class="form" id="checkoutForm">
+        <form id="form" class="checkout-form">
           <fieldset name="userData">
             <legend>Shipping Infomation</legend>
             <label for="fname">First Name</label>
@@ -54,6 +54,7 @@
               <strong>Order Total: <span id="totalTotal"></span></strong>
             </p>
           </fieldset>
+          <button id="submitCheckout" type="submit">Submit</button>
         </form>
       </section>
     </main>
