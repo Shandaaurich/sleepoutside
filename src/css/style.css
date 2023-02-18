@@ -223,17 +223,15 @@ button {
   grid-row: 2;
   grid-column: 3;
 }
-form label.top{
+form label.top {
   display: block;
   font-size: 1rem;
-  padding-top: .75rem;
-  
+  padding-top: 0.75rem;
 }
 form input {
   display: block;
   height: 2rem;
   width: 50%;
-
 }
 
 @media screen and (min-width: 500px) {
@@ -254,7 +252,6 @@ form input {
   .checkout-button {
     margin-bottom: 2rem;
   }
-
 }
 
 footer {
