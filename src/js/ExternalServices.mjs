@@ -8,6 +8,18 @@ function convertToJson(res) {
     throw new Error("Bad Response");
   }
 }
+function sortByProperty(property){  
+  return function(a,b){  
+     if(a[property] > b[property])  
+        return 1;  
+     else if(a[property] < b[property])  
+        return -1;  
+ 
+     return 0;  
+  }  
+}
+
+var sort = "NameWithoutBrand";
 
 export default class ExternalServices {
   constructor() {
@@ -17,6 +29,7 @@ export default class ExternalServices {
   async getData(category) {
     const response = await fetch(baseURL + `products/search/${category}`);
     const data = await convertToJson(response);
+    data.Result.sort(sortByProperty(sort));
     return data.Result;
   }
   async findProductById(id) {
