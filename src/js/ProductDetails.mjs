@@ -1,8 +1,6 @@
 import { getLocalStorage, setLocalStorage, qs, renderListWithTemplate } from "./utils.mjs";
 import { updateCartIcon } from "./Cart.mjs";
 
-
-
 export default class ProductDetails {
     constructor(dataSource, productID) {
         this.productID = productID;
@@ -23,37 +21,39 @@ export default class ProductDetails {
     }
 
     addToCart() {
-
         let products = []; // init cart array
+        let numberOfItems = 0; //init cart bubble
+
         if (localStorage.getItem("so-cart")) {
             //if contents in previous array
             products = getLocalStorage("so-cart"); //add old contents to array
-
         }
         //check to see if item exists in local storage
-            const productIndex = products.findIndex(
-                (product) => product.Name === this.product.Name
+        const productIndex = products.findIndex(
+            (product) => product.Name === this.product.Name
             );
-            console.log(productIndex);
         //if item exists in local storage, remove item, increment quantity
-            if (productIndex !== -1){
-                this.product.quantity += 1;
-                products.splice(productIndex, 1, this.product);
-}
-            
+        if (productIndex !== -1) {
+            this.product.quantity += 1;
+            console.log(this.product.quantity)
+            products.splice(productIndex, 1);
+            }
             //add item into cart
-            else
-                products.push(this.product); // add new content to array
-                setLocalStorage("so-cart", products); //push to storage
 
-            
-            
+        products.push(this.product); // add new content to array
+        setLocalStorage("so-cart", products); //push to storage
+
+        
+        
+        numberOfItems = getLocalStorage("numberOfItems");
+        numberOfItems += 1
+        setLocalStorage("numberOfItems", numberOfItems);
         //update the cart icon bubble text
-        updateCartIcon(products.length);
-
+        updateCartIcon(numberOfItems);
+        }
+    } 
+        
     
-        } 
-    }
     // renderProductDetails(selector) {
     //     const element = qs(selector);
     //     element.insertAdjacentHTML("afterBegin", productTemplate(this.product));

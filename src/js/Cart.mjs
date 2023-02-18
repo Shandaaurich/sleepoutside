@@ -5,8 +5,9 @@ export function initCartIcon() {
     if (localStorage.getItem("so-cart")) {
         //if contents in cart, then display how many in a bubble next to the cart icon
         var products = getLocalStorage("so-cart");
-        if (products.length > 0) {
-            updateCartIcon(products.length);
+        let numberOfItems = getLocalStorage("numberOfItems");
+        if (numberOfItems > 0) {
+            updateCartIcon(numberOfItems);
             qs(".cart").classList.add("bubble");
         }
     } else {
