@@ -22,24 +22,47 @@ export default class ProductDetails {
 
     addToCart() {
         let products = []; // init cart array
+        let numberOfItems = 0; //init cart bubble
+
         if (localStorage.getItem("so-cart")) {
             //if contents in previous array
             products = getLocalStorage("so-cart"); //add old contents to array
         }
+        //check to see if item exists in local storage
+        const productIndex = products.findIndex(
+            (product) => product.Name === this.product.Name
+            );
+        //if item exists in local storage, remove item, increment quantity
+        if (productIndex !== -1) {
+            this.product.quantity += 1;
+            console.log(this.product.quantity)
+            products.splice(productIndex, 1);
+            }
+            //add item into cart
+
         products.push(this.product); // add new content to array
         setLocalStorage("so-cart", products); //push to storage
-        
-        //update the cart icon bubble text
-        updateCartIcon(products.length);
-    }
 
+        
+        
+        numberOfItems = getLocalStorage("numberOfItems");
+        numberOfItems += 1
+        setLocalStorage("numberOfItems", numberOfItems);
+        //update the cart icon bubble text
+        updateCartIcon(numberOfItems);
+        }
+    } 
+        
+    
     // renderProductDetails(selector) {
     //     const element = qs(selector);
     //     element.insertAdjacentHTML("afterBegin", productTemplate(this.product));
     // }
-}
+    
+
 
 function productTemplate(item) {
+    item.quantity = 1;
     var discount = Math.round(item.SuggestedRetailPrice - item.FinalPrice);
     if (discount != 0) {
         var discountHTML = 
@@ -71,6 +94,7 @@ function productTemplate(item) {
     <p class="product__description">
         ${item.DescriptionHtmlSimple}
     </p>
+    <p hidden>${item.quantity}</p>
     <div class="product-detail__add">
       <button id="addToCart" data-id="${item.Id}">Add to Cart</button>
     </div>

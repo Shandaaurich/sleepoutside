@@ -10,28 +10,31 @@ export default class CheckoutProcess {
         this.outputSelector = outputSelector;
         this.list = []; //list of products in cart cookie
         this.itemTotal = 0;
+        this.quantity = 0;
         this.shipping = 0;
         this.tax = 0;
         this.orderTotal = 0;
     }
 
     init() {
-        this.list = getLocalStorage(this.key);
+        this.list = getLocalStorage("so-cart");
+        this.numberOfItems = getLocalStorage("numberOfItems");
         this.calculateItemSummary()
     }
 
     calculateItemSummary() {
         for (let item of this.list) {
-            this.itemTotal += item.FinalPrice;
+            this.itemTotal += (item.FinalPrice * item.quantity);
         }
         
         //display total items
-        qs('#itemsTotal').innerHTML = this.list.length;
+        qs('#itemsTotal').innerHTML = this.numberOfItems;
         qs('#orderSubtotal').innerHTML = "$" + this.itemTotal.toFixed(2);
     }
 
     calculateOrderSummary() {
-        this.shipping = 10 + 2 * (this.list.length - 1);
+
+        this.shipping = 10 + 2 * (this.numberOfItems - 1);
         this.tax = (this.itemTotal + this.shipping) * 0.06;
         this.orderTotal = this.itemTotal + this.shipping + this.tax;
         this.displayOrderTotals();
@@ -69,7 +72,7 @@ function packageOrder(items) {
             id: item.Id,
             price: item.FinalPrice,
             name: item.Name,
-            quantity: 1
+            quantity: item.quantity
         };
     });
     //TODO fix quantity

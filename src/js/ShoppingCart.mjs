@@ -4,7 +4,9 @@ import { renderListWithTemplate } from "./utils.mjs";
 let cartTotal = 0;
 
 function renderCartContents() {
+  // const cartItems = getLocalStorage("so-cart");
   const cartItems = getLocalStorage("so-cart");
+
   if (cartItems == null || cartItems <= 0) {
     // if cart empty display emptyness
     const htmlItems = cartEmptyTemplate();
@@ -36,6 +38,7 @@ function cartEmptyTemplate() {
 }
 
 function cartItemTemplate(item) {
+
   const newItem = `<li class="cart-card divider">
     <a href="#" class="cart-card__image">
       <img
@@ -47,13 +50,13 @@ function cartItemTemplate(item) {
       <h2 class="card__name">${item.Name}</h2>
     </a>
     <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: 1</p>
+    <p class="cart-card__quantity">quantity: ${item.quantity}</p>
     <a href="./index.html">
     <span class="cart-card__delete" data-id="${item.Id}">remove</span>
     </a>
-    <p class="cart-card__price">$${item.FinalPrice}</p>
+    <p class="cart-card__price">$${item.FinalPrice * item.quantity}</p>
   </li>`;
-  cartTotal += item.FinalPrice;
+  cartTotal += (item.FinalPrice * item.quantity);
   return newItem;
 }
 
