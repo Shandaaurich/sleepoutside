@@ -66,7 +66,14 @@ export async function loadHeaderFooter(headerData, headerCallback) {
   renderWithTemplate(footerTemplate, footerExport);
 }
 
-export function alertMessage(message, scroll=true) {
+export async function loadNavbar() {
+  const navTemplate = await loadTemplate("/partials/navbar.html");
+  const navExport = document.querySelector("#main-nav");
+
+  renderWithTemplate(navTemplate, navExport)
+}
+
+export function alertMessage(message, scroll = true) {
   const alert = document.createElement("div");
   alert.classList.add("alert");
   alert.innerHTML = `<p>${message}</p><span>X</span>`;

@@ -2,15 +2,21 @@ import ProductData from "./ProductData.mjs";
 import SearchBar from "./Search.mjs";
 import { qs, getParams, setClick } from "./utils.mjs";
 
-const category = getParams("category");
+const searchTerm = getParams("category");
+console.log(searchTerm);
 
 
 const products = new ProductData();
 const listElement = qs(".search-list");
 
-const list = new SearchBar(category, products, listElement);
+const titleElement = qs(".searchTitle");
+let title = searchTerm.toString();
+title = title[0].toUpperCase() + title.slice(1);
+titleElement.textContent = title;
 
-setClick("#searchForm", list.init());
+const list = new SearchBar(searchTerm, products, listElement);
+
+list.init()
 
 
 

@@ -1,5 +1,6 @@
 import { initCartIcon } from "./Cart.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, loadNavbar } from "./utils.mjs";
 
-//call header and footer from the template
+//call header and footer and navBar from the template
 loadHeaderFooter(null, initCartIcon);
+loadNavbar();
