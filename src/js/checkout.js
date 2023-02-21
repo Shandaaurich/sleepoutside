@@ -16,6 +16,8 @@ checkout.calculateOrderSummary();
 
 qs("#submitCheckout").addEventListener("click", (e) => {
   e.preventDefault();
-
-  checkout.checkout();
+  var myForm = document.forms[0];
+  var chk_status = myForm.checkValidity();
+  myForm.reportValidity();
+  if (chk_status) checkout.checkout();
 });

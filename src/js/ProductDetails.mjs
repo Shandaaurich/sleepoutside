@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, qs, renderListWithTemplate } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, qs, renderListWithTemplate, alertMessage } from "./utils.mjs";
 import { updateCartIcon } from "./Cart.mjs";
 
 export default class ProductDetails {
@@ -50,6 +50,7 @@ export default class ProductDetails {
         setLocalStorage("numberOfItems", numberOfItems);
         //update the cart icon bubble text
         updateCartIcon(numberOfItems);
+        alertMessage(`Item added to cart! <a href="../cart/index.html">Go to cart</a>`)
         }
     } 
         
