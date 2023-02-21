@@ -1,10 +1,8 @@
 import ProductData from "./ProductData.mjs";
 import SearchBar from "./Search.mjs";
-import { qs, getParams, setClick } from "./utils.mjs";
+import { qs, getParams } from "./utils.mjs";
 
 const searchTerm = getParams("category");
-console.log(searchTerm);
-
 
 const products = new ProductData();
 const listElement = qs(".search-list");
@@ -16,8 +14,4 @@ titleElement.textContent = title;
 
 const list = new SearchBar(searchTerm, products, listElement);
 
-list.init()
-
-
-
-
+list.init();

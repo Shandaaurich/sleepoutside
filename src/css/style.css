@@ -61,7 +61,9 @@ header {
 .topnav .search {
   float: none;
 }
-.topnav a, .topnav input[type=text], .topnav .search button {
+.topnav a,
+.topnav input[type="text"],
+.topnav .search button {
   float: none;
   display: block;
   text-align: left;
@@ -70,25 +72,24 @@ header {
   padding: 14px;
   text-decoration: none;
 }
-  
+
 .topnav a.active {
   background-color: var(--primary-color);
   color: white;
 }
-  
+
 .topnav a:hover {
   background-color: var(--tertiary-color);
   color: black;
 }
 
-.topnav input[type=text] {
-  border: 1px solid #ccc;  
+.topnav input[type="text"] {
+  border: 1px solid #ccc;
 }
- 
+
 .topnav .search button:hover {
   background: var(--primary-color);
 }
-
 
 .hero {
   position: relative;
@@ -285,12 +286,11 @@ input:required:valid {
 }
 
 @media screen and (min-width: 500px) {
-
   /* nav bar start */
   .topnav {
     overflow: hidden;
   }
-  
+
   .topnav a {
     float: left;
     /* display: block; */
@@ -300,19 +300,19 @@ input:required:valid {
     font-size: 17px;
     width: auto;
   }
-  
+
   .topnav .search {
     float: right;
   }
-  
-  .topnav input[type=text] {
+
+  .topnav input[type="text"] {
     float: right;
     width: 100%;
     padding: 6px;
     margin-top: 8px;
     font-size: 17px;
   }
-  
+
   .topnav .search button {
     display: inline;
     float: right;
@@ -323,9 +323,8 @@ input:required:valid {
     border: none;
     cursor: pointer;
   }
- 
 
-/* nav bar end */
+  /* nav bar end */
 
   body {
     max-width: 1080px;
