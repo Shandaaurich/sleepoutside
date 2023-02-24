@@ -22,9 +22,7 @@ document.addEventListener("keydown", function (e) {
 
 // thank you message onClick register button
 modal.addEventListener("click", function (e) {
-  
   if (e.target.tagName == "BUTTON") {
-    modalContent.innerHTML = "Thank you for registering!";
+    modalContent.innerHTML = `<h4>Thank you for registering!</h4> <p>Check your email for giveaway details.</p>`;
   }
 });
-

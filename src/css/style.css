@@ -48,13 +48,11 @@ header {
   color: var(--font-body);
 }
 
-
 /* Start registration modal */
-
 
 body {
   position: relative;
-} 
+}
 
 .modal {
   display: flex;
@@ -96,7 +94,6 @@ body {
   color: #777;
   margin: 0.4rem 0 0.2rem;
 }
-
 
 .btn-close {
   margin-top: 1rem;
@@ -347,7 +344,6 @@ input:required:valid {
   .checkout-button {
     margin-bottom: 2rem;
   }
-
 }
 
 footer {
