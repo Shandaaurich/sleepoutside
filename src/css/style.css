@@ -78,7 +78,13 @@ body {
   justify-content: space-between;
 }
 
+.modal-content {
+  text-align: center;
+  font-size: var(--large-font);
+}
+
 .modal input {
+  margin-bottom: 1rem;
   padding: 0.7rem 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -93,8 +99,10 @@ body {
 
 
 .btn-close {
+  margin-top: 1rem;
   transform: translate(10px, -20px);
   padding: 0.5rem 0.7rem;
+  font-size: var(--small-font);
 }
 
 .overlay {

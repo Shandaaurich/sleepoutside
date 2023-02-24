@@ -1,7 +1,7 @@
 const modal = document.querySelector(".main-modal");
 const overlay = document.querySelector(".overlay");
-// const openModalBtn = document.querySelector(".btn-open");
 const closeModalBtn = document.querySelector(".btn-close");
+const modalContent = document.querySelector(".modal-content");
 
 // close modal function
 const closeModal = function () {
@@ -20,10 +20,11 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-// // open modal function
-// const openModal = function () {
-//   modal.classList.remove("hidden");
-//   overlay.classList.remove("hidden");
-// };
-// open modal event
-// openModalBtn.addEventListener("click", openModal);
+// thank you message onClick register button
+modal.addEventListener("click", function (e) {
+  
+  if (e.target.tagName == "BUTTON") {
+    modalContent.innerHTML = "Thank you for registering!";
+  }
+});
+
