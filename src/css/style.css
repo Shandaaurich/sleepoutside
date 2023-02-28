@@ -276,3 +276,14 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+table {
+  width: 70%;
+  margin: auto;
+}
+thead{
+  border: 2px solid black ;
+}
+td {
+  padding-left: 7px;
+  border-bottom: 2px solid black ;
+}
