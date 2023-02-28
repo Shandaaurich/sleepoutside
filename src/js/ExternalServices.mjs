@@ -1,4 +1,6 @@
-const BYUIbaseURL = "http://server-nodejs.cit.byui.edu:3000/"
+// BYUI/local Login
+//const baseURL = "http://server-nodejs.cit.byui.edu:3000/"
+//External Site login
 const baseURL = "https://wdd330-backend.onrender.com/"
 
 async function convertToJson(res) {
@@ -6,7 +8,7 @@ async function convertToJson(res) {
   if (res.ok) {
     return data;
   } else {
-    throw { name: 'servicesError', message: data};
+    throw { name: "servicesError", message: data};
   }
 }
 function sortByProperty(property){  
@@ -19,6 +21,8 @@ function sortByProperty(property){
      return 0;  
   }  
 }
+
+
 
 var sort = "NameWithoutBrand";
 
@@ -41,9 +45,9 @@ export default class ExternalServices {
 
   async checkout(json) {
     const thingToSend = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(json)
     };
@@ -51,5 +55,31 @@ export default class ExternalServices {
     const response = await fetch (baseURL + `checkout`, thingToSend)
     const data = await convertToJson(response);
     return data.Result;
+  }
+
+  async loginRequest(creds){
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(creds),
+    };
+    const response = await fetch(baseURL + "login", options).then(
+      convertToJson
+    );
+    return response.accessToken;
+  }
+  async getOrders(token){
+    const options = {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    };
+    const response = await fetch(baseURL + "orders", options).then(
+      convertToJson
+    );
+    return response;
   }
 }

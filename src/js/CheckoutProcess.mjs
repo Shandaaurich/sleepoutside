@@ -49,9 +49,9 @@ export default class CheckoutProcess {
     async checkout(form) {
         let order = formDataToJSON(qs('#form'));
         order.orderDate = new Date();
-        order.orderTotal = this.orderTotal;
-        order.tax = this.tax;
-        order.shipping = this.shipping;
+        order.orderTotal = this.orderTotal.toFixed(2);
+        order.tax = this.tax.toFixed(2);
+        order.shipping = this.shipping.toFixed(2);
         order.items = packageOrder(this.list);
         console.log(order)
 
