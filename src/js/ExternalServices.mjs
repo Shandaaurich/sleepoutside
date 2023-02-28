@@ -1,7 +1,7 @@
 // BYUI/local Login
-//const baseURL = "http://server-nodejs.cit.byui.edu:3000/"
+const baseURL = "http://server-nodejs.cit.byui.edu:3000/"
 //External Site login
-const baseURL = "https://wdd330-backend.onrender.com/"
+//const baseURL = "https://wdd330-backend.onrender.com/"
 
 async function convertToJson(res) {
   const data = await res.json();
