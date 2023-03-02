@@ -48,6 +48,49 @@ header {
   color: var(--font-body);
 }
 
+/* nav bar */
+
+.search-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+}
+
+.topnav .search {
+  float: none;
+}
+.topnav a,
+.topnav input[type="text"],
+.topnav .search button {
+  float: none;
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.topnav a.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.topnav a:hover {
+  background-color: var(--tertiary-color);
+  color: black;
+}
+
+.topnav input[type="text"] {
+  border: 1px solid #ccc;
+}
+
+.topnav .search button:hover {
+  background: var(--primary-color);
+}
+
 /* Start registration modal */
 
 body {
@@ -327,6 +370,46 @@ input:required:valid {
 }
 
 @media screen and (min-width: 500px) {
+  /* nav bar start */
+  .topnav {
+    overflow: hidden;
+  }
+
+  .topnav a {
+    float: left;
+    /* display: block; */
+    color: var(--dark-grey);
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: auto;
+  }
+
+  .topnav .search {
+    float: right;
+  }
+
+  .topnav input[type="text"] {
+    float: right;
+    width: 100%;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+  }
+
+  .topnav .search button {
+    display: inline;
+    float: right;
+    text-align: center;
+    padding: 6px 10px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* nav bar end */
+
   body {
     max-width: 1080px;
     margin: auto;
@@ -354,10 +437,10 @@ table {
   width: 70%;
   margin: auto;
 }
-thead{
-  border: 2px solid black ;
+thead {
+  border: 2px solid black;
 }
 td {
   padding-left: 7px;
-  border-bottom: 2px solid black ;
+  border-bottom: 2px solid black;
 }

@@ -73,6 +73,13 @@ export async function loadModal() {
   renderListWithTemplate(modalTemplate, modalExport);
 }
 
+export async function loadNavbar() {
+  const navTemplate = await loadTemplate("/partials/navbar.html");
+  const navExport = document.querySelector("#main-nav");
+
+  renderWithTemplate(navTemplate, navExport)
+}
+
 export function alertMessage(message, scroll = true) {
   const alert = document.createElement("div");
   alert.classList.add("alert");
