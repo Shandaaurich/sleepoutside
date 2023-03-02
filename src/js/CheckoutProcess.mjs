@@ -28,8 +28,8 @@ export default class CheckoutProcess {
         }
         
         //display total items
-        qs('#itemsTotal').innerHTML = this.numberOfItems;
-        qs('#orderSubtotal').innerHTML = "$" + this.itemTotal.toFixed(2);
+        qs("#itemsTotal").innerHTML = this.numberOfItems;
+        qs("#orderSubtotal").innerHTML = "$" + this.itemTotal.toFixed(2);
     }
 
     calculateOrderSummary() {
@@ -41,24 +41,24 @@ export default class CheckoutProcess {
     }
 
     displayOrderTotals() {
-        qs('#shippingTotal').innerHTML = "$" + this.shipping.toFixed(2);
-        qs('#taxTotal').innerHTML = "$" + this.tax.toFixed(2);
-        qs('#totalTotal').innerHTML = "$" + this.orderTotal.toFixed(2);
+        qs("#shippingTotal").innerHTML = "$" + this.shipping.toFixed(2);
+        qs("#taxTotal").innerHTML = "$" + this.tax.toFixed(2);
+        qs("#totalTotal").innerHTML = "$" + this.orderTotal.toFixed(2);
     }
 
     async checkout(form) {
-        let order = formDataToJSON(qs('#form'));
+        let order = formDataToJSON(qs("#form"));
         order.orderDate = new Date();
         order.orderTotal = this.orderTotal.toFixed(2);
         order.tax = this.tax.toFixed(2);
         order.shipping = this.shipping.toFixed(2);
         order.items = packageOrder(this.list);
-        console.log(order)
+        // console.log(order)
 
         //submit
         try {
         const res = await services.checkout(order);
-        console.log(res);
+        // console.log(res);
         location.assign("./success.html");
         setLocalStorage("so-cart", []);
         setLocalStorage("numberOfItems", 0);
@@ -75,14 +75,12 @@ export default class CheckoutProcess {
 
 function packageOrder(items) {
     // build the JSON to POST
-    var simplifiedItems = items.map((item) => {
-        return {
+    var simplifiedItems = items.map((item) => ({
             id: item.Id,
             price: item.FinalPrice,
             name: item.Name,
             quantity: item.quantity
-        };
-    });
+        }));
     //TODO fix quantity
 
     return simplifiedItems;
