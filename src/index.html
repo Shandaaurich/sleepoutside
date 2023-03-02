@@ -7,10 +7,26 @@
     <link rel="stylesheet" href="/css/style.css" />
     <script src="./js/displayAlerts.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
+    <script src="./js/modal.js" type="module"></script>
   </head>
+
   <body>
     <header class="divider" id="main-header"></header>
     <main class="divider">
+      <dialog class="main-modal modal hidden" id="main-modal">
+        <div class="flex">
+          <button class="btn-close">⨉</button>
+        </div>
+        <div class="modal-content">
+          <div>
+            <h3>Sign up for our Newsletter!</h3>
+          </div>
+
+          <input type="email" id="email" placeholder="user@sleepoutside.com" />
+          <button class="btn registerBtn" type="submit">Sign Up</button>
+        </div>
+      </dialog>
+      <div class="overlay hidden"></div>
       <div class="hero">
         <img
           src="/images/banner-sm.jpg"

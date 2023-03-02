@@ -1,5 +1,5 @@
 //import { response } from "express";
-import { initCartIcon } from "./Cart.mjs";
+// import { initCartIcon } from "./Cart.mjs";
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -66,13 +66,41 @@ export async function loadHeaderFooter(headerData, headerCallback) {
   renderWithTemplate(footerTemplate, footerExport);
 }
 
-export function alertMessage(message, scroll=true) {
+export async function loadModal() {
+  const modalTemplate = await loadTemplate("/partials/modal.html");
+  const modalExport = document.querySelector("#main-modal");
+
+  renderListWithTemplate(modalTemplate, modalExport);
+}
+
+export function alertMessage(message, scroll = true) {
   const alert = document.createElement("div");
   alert.classList.add("alert");
   alert.innerHTML = `<p>${message}</p><span>X</span>`;
 
   alert.addEventListener("click", function (e) {
     if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
+  });
+  const main = document.querySelector("main");
+  main.prepend(alert);
+  if (scroll) window.scrollTo(0, 0);
+}
+
+export function alertRegister(scroll = true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p><strong>Free Giveaway!</strong> Register with us for details!</p><button class=".btn">click here</button><span>X</span>`;
+
+
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
+    if (e.target.tagName == "BUTTON") {
+      qs(".main-modal").classList.remove("hidden");
+      qs(".overlay").classList.remove("hidden");
       main.removeChild(this);
     }
   });

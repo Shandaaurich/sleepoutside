@@ -35,7 +35,7 @@ export default class ProductDetails {
         //if item exists in local storage, remove item, increment quantity
         if (productIndex !== -1) {
             this.product.quantity += 1;
-            console.log(this.product.quantity)
+            // console.log(this.product.quantity)
             products.splice(productIndex, 1);
             }
             //add item into cart
