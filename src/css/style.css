@@ -185,6 +185,53 @@ button {
   width: 100%;
 }
 
+.product-detail__add button{
+  position: relative;
+}
+.product-detail__add .item-bubble {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  top: -10px;
+  right: -10px;
+}
+.product-detail__add .item-bubble:before {
+  content: "1";
+  display: block;
+  line-height: 24px;
+  border-radius: 24px;
+  height: 24px;
+  width: 24px;
+  font-size: 12px;
+  background: #f0a868;
+  color: white;
+  text-align: center;
+}
+.product-detail__add.animate .item-bubble {
+  display: block;
+  animation: xAxis 1s forwards cubic-bezier(1, 0.44, 0.84, 0.165);
+}
+.product-detail__add.animate .item-bubble:before {
+  display: block;
+  animation: yAxix 1s alternate forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes xAxis {
+  100% {
+    /* translate from the middle (where the button is) to the right side */
+    /* center (50vw) - button padding (2em) - cart-icon width (35px) */
+    transform: translateX(calc(50vw - 2em - 25px));
+  }
+}
+@keyframes yAxis {
+  100% {
+    /* translate from the middle to the top */
+    transform: translateY(calc(-50vh + 75px));
+  }
+}
+
+
+
 /* Start cart list card styles */
 .cart-card {
   display: grid;

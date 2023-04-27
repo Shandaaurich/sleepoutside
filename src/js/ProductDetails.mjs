@@ -29,8 +29,11 @@ export default class ProductDetails {
         products.push(this.product); // add new content to array
         setLocalStorage("so-cart", products); //push to storage
         
+        
+
         //update the cart icon bubble text
         updateCartIcon(products.length);
+
     }
 
     // renderProductDetails(selector) {
@@ -72,7 +75,7 @@ function productTemplate(item) {
         ${item.DescriptionHtmlSimple}
     </p>
     <div class="product-detail__add">
-      <button id="addToCart" data-id="${item.Id}">Add to Cart</button>
+      <button id="addToCart" data-id="${item.Id}">Add to Cart<span class="item-bubble"></span></button>
     </div>
     </section>`
 }

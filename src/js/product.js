@@ -9,3 +9,14 @@ const product = new ProductDetails(dataSource, productID);
 product.init();
 
 loadHeaderFooter(null, initCartIcon);
+
+
+// run the 'item added to cart' animation
+let button = document.getElementById("addToCart");
+button.addEventListener("click", () => {
+    button.classList.add('animate');
+    setTimeout(() => {
+    button.classList.remove('animate');
+
+}, 1000);
+});
